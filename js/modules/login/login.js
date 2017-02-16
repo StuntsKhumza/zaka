@@ -25,10 +25,8 @@ angular.module('login-app', ['ui.router'])
 
                                     mySession.UserObj.isActive = true;
                                     mySession.UserObj.username = res.data.name;
-                                    console.log('1');
-                                    console.log(mySession.UserObj);
                                     
-                                    $state.go('s-home', {session: mySession.UserObj});
+                                    $state.go('s-home');
                                 } else {
                                     self.loginbObj.message = res.data.message;
                                 }// 

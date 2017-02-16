@@ -1,13 +1,36 @@
-<nav class="navbar navbar-light bg-faded remove-radius ">
-    <ul class="nav navbar-nav">
-        <li class="nav-item active">
-            <a class="nav-link" ui-href="s-home">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" ui-sref="s-history">Features</a>
-        </li>
+<style>
+    .nav-c {
+        background-color: #fff;
+        padding: 15px;
+    }
+    
+    .nav-c ul {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .nav-c ul li {
+        list-style: none;
+        float: left;
+        margin: 5px;
+    }
 
+    .active-c {
+        border-bottom: 3px #5cb85c solid; 
+       
+    }
+
+ .nav-c ul li a {
+ height: 35px;
+        display: block;
+        text-decoration: none;
+        color: #212121;
+ }
+
+</style>
+<nav class="nav-c">
+    <ul>
+        <li class="active-c"><a ui-sref="s-home">Home</a></li>   
     </ul>
 </nav>
-{{username}}--
 <br>

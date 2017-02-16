@@ -17,8 +17,6 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
                         total: 0,
                         name: mySession.UserObj.name
                     }
-console.log('2');
-                    console.log(mySession.UserObj);
 
                     self.formData = {
                         accname: '',
@@ -77,7 +75,7 @@ console.log('2');
                         var total = 0;
 
                         for (var i = 0; i < self.homeObj.data.length; i++) {
-                            console.log(i);
+                        
 
                             total = total + self.homeObj.data[i].balance;
                         }

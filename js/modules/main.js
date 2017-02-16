@@ -2,7 +2,8 @@ angular.module('main-app',
 ['ui.router', 
 'home-app', 
 'history-app',
-'login-app'
+'login-app',
+'nav-app'
 ])
     .config(function ($stateProvider, $urlRouterProvider) {
       
@@ -10,7 +11,7 @@ angular.module('main-app',
         $urlRouterProvider.otherwise('/login');
     })
 
-    .service('mySession', function(){
+    .service('mySession', function($q){
 
         var self = this;
 
@@ -19,10 +20,12 @@ angular.module('main-app',
             name: ''
         }
 
-        self.checkLogin = function(){
+        
 
+        /*self.checkLogin =*/ function checkLogin(){   
+            if(angular.isDefined(this.UserObj)) return $q.when(self.UserObj);
 
-
+            return self.UserObj;
         }
 
         return self;
