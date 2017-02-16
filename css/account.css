@@ -1,0 +1,17 @@
+.c-thead  thead {
+    background: #fff;
+    color: #000;
+  
+}
+
+.add-border-top{
+    border-top: 2px solid;
+}
+
+.c-btn-dark-border {
+    border: 1px #337ab7 solid;
+    background-color: #fff;
+    color: #337ab7;
+    font-weight: bold;
+}
+

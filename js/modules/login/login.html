@@ -1,0 +1,55 @@
+<style>
+    .div-login {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    /*media query*/
+    @media all and (max-width: 320px){
+        .div-login { width: 100%; margin: auto; }
+    }
+
+</style>
+
+<div class="container">
+    <div class="div-login">
+
+        <br>
+        <form>
+            <div class="panel panel-default" ng-if="loginController.loginbObj.message.length > 0">{{loginController.loginbObj.message}}</div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Username/Email:</label>
+                            <input type="text" placeholder="account name" class="input-sm form-control remove-radius" ng-model="loginController.loginbObj.username">
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Password:</label>
+                            <input type="password" class="input-sm form-control remove-radius" ng-model="loginController.loginbObj.password">
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="pull-right">
+                                <button class="btn btn-md btn-c-success" ng-click="loginController.login()"><i class="fa fa-user" aria-hidden="true"></i> Login</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </form>
+
+
+    </div>
+</div>

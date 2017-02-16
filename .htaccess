@@ -1,0 +1,8 @@
+#Turn on the Rewrite Engine
+ 
+RewriteEngine On
+
+#home rewrite rule
+RewriteRule ^app$ index.php
+RewriteRule ^app$ index.php
+

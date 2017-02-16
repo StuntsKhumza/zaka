@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-12">
+
+        <table class="table c-thead" ng-init="totalAmount = 0">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Description</th>
+                    <th>PM</th>
+                    <th>Balance</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tr ng-repeat="accs in accdata.data">
+                <td ng-init="totalAmount = totalAmount + accdata.balance">{{$index + 1}}.</td>
+                <td>
+                    {{accs.accountname}}
+                </td>
+                <td>
+                    {{accs.pm | currency:'R '}}
+                </td>
+                <td>
+                    {{accs.balance | currency:'R '}}
+                </td>
+                <td>
+
+                    <button class="btn btn-c-white" ng-disabled="false" ng-click="accController.editItem($index)" data-toggle="modal" data-target="#addViewAcc"><i class="fa fa-pencil-square-o" aria-hidden="true" ></i></button>
+                    <button class="btn btn-c-white" ng-click="accController.removeItem($index)"><i class="fa fa-times" aria-hidden="true" ng-disabled="true"></i></button>
+
+                </td>
+            </tr>
+            <tr class="add-border-top">
+                <td colspan="5"><b>Total:</b> {{homeproperties.total | currency:'R '}}</td>
+
+            </tr>
+        </table>
+
+
+    </div>
+</div>

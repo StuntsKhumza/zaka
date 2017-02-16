@@ -1,0 +1,126 @@
+<div class="container">
+<br>
+
+<navigation-n username="homeController.homeProperties.name"></navigation-n>
+
+    <br>
+    <div class="row" ng-if="homeController.searching">
+        <div class="col-md-12">
+            <img src="img/Searching.gif" alt="searching gif">
+            <h7>...please wait</h7>
+        </div>
+    </div>
+
+    <div ng-if="!homeController.searching">
+
+        <div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 ng-click="homeController.getTotal()">Your accounts:</h5>
+                </div>
+                <div class="col-md-8">
+                    <div class="pull-right">
+                        <button class="btn btn-md btn-c-success" ng-click="homeController.showAdd()" data-toggle="modal" data-target="#addViewAcc"><i class="fa fa-credit-card-alt" aria-hidden="true"></i> Add New </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+                <div class="col-md-12 add-border-right">
+                    <acc accdata="homeController.homeObj" homeproperties="homeController.homeProperties" form-data="homeController.formData"></acc>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addViewAcc" role="dialog">
+        <div class="modal-dialog modal-lg ">
+            <div class="modal-content remove-radius">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Adding new account:</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Description:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" placeholder="account name" class="input-sm form-control" ng-model="homeController.formData.accname">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Balance:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="number" placeholder="account name" class="input-sm form-control" ng-model="homeController.formData.accbalance"
+                                            onkeypress="return isNumberKey(event)">
+</div>
+</div>
+</div>
+</div>
+<br>
+   <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>PM:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input type="text" placeholder="installment" class="input-sm form-control" ng-model="homeController.formData.pm">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+<br>
+<div class="row">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <label>Comments:</label>
+                <textarea class="input-sm form-control"></textarea>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</form>
+</div>
+<div class="modal-footer">
+
+    <button data-dismiss="modal" ng-disabled="homeController.formData.accbalance.length == 0 || homeController.formData.accname.length == 0"
+        ng-click="homeController.saveNewAccount()" class="btn btn-md btn-c-success">
+                                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+                            </button>
+    <button data-dismiss="modal" ng-click="homeController.close()" class="btn btn-md btn-c-success">
+                                <i class="fa fa-window-close-o" aria-hidden="true"></i> Cancel
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
