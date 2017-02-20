@@ -8,12 +8,17 @@ angular.module('nav-app', [])
                 username: '='
             }
             ,
-            controller: function ($scope, mySession) {
+            controller: function ($scope, mySession,$state) {
 
                 var self = this;
                 self.sessionV = mySession.UserObj;
 
                 console.log(self.sessionV);
+
+                self.logout = function(){
+                    $http.get('session.php?q=close_session');
+                    $state.go('login');
+                }
                     
             }
         }

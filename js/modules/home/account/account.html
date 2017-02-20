@@ -4,20 +4,20 @@
         <table class="table c-thead" ng-init="totalAmount = 0">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th class="hide-when-md">#</th>
                     <th>Description</th>
-                    <th>PM</th>
+                    <th class="hide-when-md">PM</th>
                     <th>Balance</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
             <tr ng-repeat="accs in accdata.data">
-                <td ng-init="totalAmount = totalAmount + accdata.balance">{{$index + 1}}.</td>
+                <td ng-init="totalAmount = totalAmount + accdata.balance" class="hide-when-md">{{$index + 1}}.</td>
                 <td>
                     {{accs.accountname}}
                 </td>
-                <td>
+                <td class="hide-when-md">
                     {{accs.pm | currency:'R '}}
                 </td>
                 <td>

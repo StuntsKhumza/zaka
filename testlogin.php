@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 
 if (!empty($_GET)){
 	
@@ -18,11 +20,13 @@ if (!empty($_GET)){
 		
 		if ($in_password == '123'){
 			
+			$_SESSION['session_active'] = 1;
+
 			die(json_encode(array('status'=>200, 'message'=>'Welcome', 'name'=>'Nkosinathi')));
 			
 		}
 		else {
-			
+			$_SESSION['session_active'] = 0;
 			die(json_encode(array('status'=>405, 'message'=>'Please check username/password combination')));
 			
 		}
@@ -31,7 +35,7 @@ if (!empty($_GET)){
 	}
 	else {
 		
-		
+		$_SESSION['session_active'] = 0;
 		die(json_encode(array('status'=>404, 'message'=>'Please check username/password combination')));
 		
 		

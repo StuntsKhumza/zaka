@@ -15,3 +15,11 @@
     font-weight: bold;
 }
 
+@media all and (max-width: 400px){
+
+    .hide-when-md {
+        display: none;
+    }
+
+}
+

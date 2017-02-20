@@ -1,6 +1,12 @@
 <div class="container">
+    <navigation-n username="homeController.homeProperties.name"></navigation-n>
+</div>
 
-<navigation-n username="homeController.homeProperties.name"></navigation-n>
+
+<hr>
+<div class="container">
+
+
 
     <br><br>
     <div class="row" ng-if="homeController.searching">
@@ -72,12 +78,12 @@
                                     <div class="col-md-9">
                                         <input type="number" placeholder="account name" class="input-sm form-control" ng-model="homeController.formData.accbalance"
                                             onkeypress="return isNumberKey(event)">
-</div>
-</div>
-</div>
-</div>
-<br>
-   <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -92,34 +98,34 @@
 
                         </div>
 
-<br>
-<div class="row">
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-12">
-                <label>Comments:</label>
-                <textarea class="input-sm form-control"></textarea>
-            </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Comments:</label>
+                                        <textarea class="input-sm form-control"></textarea>
+                                    </div>
 
-        </div>
-    </div>
-</div>
+                                </div>
+                            </div>
+                        </div>
 
-</form>
-</div>
-<div class="modal-footer">
+                    </form>
+                </div>
+                <div class="modal-footer">
 
-    <button data-dismiss="modal" ng-disabled="homeController.formData.accbalance.length == 0 || homeController.formData.accname.length == 0"
-        ng-click="homeController.saveNewAccount()" class="btn btn-md btn-c-success">
-                                <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
-                            </button>
-    <button data-dismiss="modal" ng-click="homeController.close()" class="btn btn-md btn-c-success">
+                    <button data-dismiss="modal" ng-disabled="homeController.formData.accbalance.length == 0 || homeController.formData.accname.length == 0"
+                        ng-click="homeController.saveNewAccount()" class="btn btn-md btn-c-success">
+                        <i class="fa fa-floppy-o" aria-hidden="true"></i> Save
+                        </button>
+                        <button data-dismiss="modal" ng-click="homeController.close()" class="btn btn-md btn-c-success">
                                 <i class="fa fa-window-close-o" aria-hidden="true"></i> Cancel
                             </button>
-</div>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </div>

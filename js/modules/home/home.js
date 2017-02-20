@@ -1,4 +1,4 @@
-angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
+angular.module('home-app', ['ui.router', 'acc-app', 'nav-app'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -7,7 +7,12 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
                 controllerAs: 'homeController',
                 templateUrl: "js/modules/home/home.html",
                 url: '/home/:session',
-                controller: function ($scope, $state, $http, mySession, $stateParams ) {
+                controller: function ($scope, $state, $http, mySession, $stateParams, session) {
+
+                    if (session != 200){
+                        $state.go('login');
+                        return;
+                    }
 
                     var self = this;
                     self.homeObj = null;
@@ -41,7 +46,7 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
 
                         self.homeProperties.enableAdd = true;
 
-  //                      self.homePropertie.currentRow = null;
+                        //                      self.homePropertie.currentRow = null;
 
                     }
                     self.clearFormData = function () {
@@ -63,7 +68,7 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
                         self.homeObj.data.push(data);
 
                         self.getTotal();
-                    
+
                     }
 
                     self.close = function () {
@@ -75,7 +80,7 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
                         var total = 0;
 
                         for (var i = 0; i < self.homeObj.data.length; i++) {
-                        
+
 
                             total = total + self.homeObj.data[i].balance;
                         }
@@ -88,16 +93,25 @@ angular.module('home-app', ['ui.router', 'acc-app',  'nav-app'])
                 },
                 resolve: {
 
-                    /*session: function (serviceSession) {
-    
-                        var data = serviceSession.getSession();
-    
-                        return data.then(function (res) {
-    
-                            return res.status; 
-    
+                    session: function ($http) {
+
+                        var session = $http.get('session.php?q=check_session');
+
+                        return session.then(function (response) {
+
+                            return response.data.status;
+
                         })
-                } */
+
+                        /*
+                        var data = serviceSession.getSession();
+
+                        return data.then(function (res) {
+
+                            return res.status;
+
+                        }) */
+                    }
                 }
             })
     })

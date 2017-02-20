@@ -7,7 +7,11 @@ angular.module('login-app', ['ui.router'])
                 controllerAs: 'loginController',
                 templateUrl: "js/modules/login/login.html",
                 url: '/login',
-                controller: function ($scope, $state, $http, mySession, $stateParams ) {
+                controller: function ($scope, $state, $http, mySession, $stateParams, session) {
+
+                    if(session == 200){
+                        $state.go('s-home');
+                    }
 
                     var self = this;
                     self.loginbObj = {
@@ -25,7 +29,7 @@ angular.module('login-app', ['ui.router'])
 
                                     mySession.UserObj.isActive = true;
                                     mySession.UserObj.username = res.data.name;
-                                    
+
                                     $state.go('s-home');
                                 } else {
                                     self.loginbObj.message = res.data.message;
@@ -36,16 +40,16 @@ angular.module('login-app', ['ui.router'])
                 },
                 resolve: {
 
-                    /*session: function (serviceSession) {
-    
-                        var data = serviceSession.getSession();
-    
-                        return data.then(function (res) {
-    
-                            return res.status; 
-    
+                    session: function ($http) {
+
+                        var session = $http.get('session.php?q=check_session');
+
+                        return session.then(function (response) {
+
+                            return response.data.status;
+
                         })
-                } */
+                    }
                 }
             })
     })
