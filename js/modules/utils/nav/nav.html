@@ -26,10 +26,12 @@
         color: #212121;
     }
 </style>
+
 <nav class="nav-c">
     <ul>
         <li class="active-c"><a ui-sref="s-home">Home</a></li>
     </ul>
-    <div class="pull-right"><!-- Hi {{navCrt.sessionV.username}}--><b>leave</b></div>
+    <div class="c-pull-right"><!-- Hi {{navCrt.sessionV.username}}--><b ng-click="navCtr.logout()"> {{navCtr.sessionV.username}} logout</b></div>
 </nav>
+
 <br>

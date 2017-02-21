@@ -8,3 +8,6 @@
 .btn-c-success:hover {background-color: #4ca94f; color: #fff;}
 .panel{padding: 5px;}
 .panel.panel-default {background-color: #d83b01; color: #fff;}
+.c-pull-right {
+    float: right;
+}

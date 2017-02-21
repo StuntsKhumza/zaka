@@ -15,7 +15,7 @@ if (!empty($_GET)){
 	$in_password = $_GET['password'];
 	
 	
-	if ($in_username == 'investec'){
+	if (strtoupper ($in_username) == strtoupper ('investec')){
 		
 		
 		if ($in_password == '123'){
