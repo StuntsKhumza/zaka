@@ -1,6 +1,6 @@
 <style>
     .nav-c {
-        background-color: #fff;
+        
         padding: 15px;
     }
     
@@ -18,12 +18,16 @@
     .active-c {
         border-bottom: 3px #5cb85c solid;
     }
+
+    .active-c:hover{
+        border-bottom: 3px #ccc solid;
+    }
     
     .nav-c ul li a {
-        height: 35px;
+        height: 45px;
         display: block;
         text-decoration: none;
-        color: #212121;
+        color:#D3D5CB;
     }
 </style>
 
@@ -31,7 +35,7 @@
     <ul>
         <li class="active-c"><a ui-sref="s-home">Home</a></li>
     </ul>
-    <div class="c-pull-right"><!-- Hi {{navCrt.sessionV.username}}--><b ng-click="navCtr.logout()">logout</b></div>
+    <div class="c-pull-right"><!-- Hi {{navCrt.sessionV.username}}--><span ng-click="navCtr.logout()" style="color:#D3D5CB">logout</span></div>
 </nav>
 
 <br>

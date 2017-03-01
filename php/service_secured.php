@@ -2,12 +2,12 @@
 session_start();
 
 require_once('sql_secured.php');
-
+header('Content-Type: application/json');
 $query = "";
 
-if (isset($_POST['q'])){
+if (isset($_GET['q'])){
 	
-	$query = $_POST['q'];
+	$query = $_GET['q'];
 	
 }
 else {
@@ -31,7 +31,13 @@ switch ($query) {
 	
 	case "authenticate":
 	
-    response($sql->authenticate($_POST));
+    response($sql->authenticate($_GET));
+
+	break;
+
+	 default:
+
+	response(400,'Request Type not specified',null);
 
 	break;
 	

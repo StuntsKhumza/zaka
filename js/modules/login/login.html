@@ -2,7 +2,13 @@
     .div-login {
         width: 300px;
         margin: 0 auto;
+		padding: 10px;
+		background-color: #2B3238;
     }
+
+	.input-login{
+		background-color: #3A4149;
+	}
 
     /*media query*/
     @media all and (max-width: 320px){
@@ -11,26 +17,27 @@
 
 </style>
 
-<div class="container">
+
+<div class="">
+	
     <div class="div-login">
 
-        <br>
-        <form>
+        <form ng-if="true">
             <div class="panel panel-default" ng-if="loginController.loginbObj.message.length > 0">{{loginController.loginbObj.message}}</div>
             <br>
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Username/Email:</label>
-                            <input type="text" placeholder="account name" class="input-sm form-control remove-radius" ng-model="loginController.loginbObj.username">
+                            <label style="color:#D3D5CB">Username/Email:</label>
+                            <input type="text" placeholder="account name" class="input-sm form-control remove-radius input-login" ng-model="loginController.loginbObj.username">
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Password:</label>
-                            <input type="password" class="input-sm form-control remove-radius" ng-model="loginController.loginbObj.password">
+                            <label style="color:#D3D5CB">Password:</label>
+                            <input type="password" class="input-sm form-control remove-radius input-login" ng-model="loginController.loginbObj.password">
                         </div>
 
                     </div>
@@ -38,7 +45,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="pull-right">
-                                <button class="btn btn-md btn-c-success" ng-click="loginController.login()"><i class="fa fa-user" aria-hidden="true"></i> Login</button>
+                                <button class="btn btn-md btn-success" ng-click="loginController.login()"><i class="fa fa-user" aria-hidden="true"></i> Login</button>
                             </div>
 
                         </div>

@@ -45,6 +45,7 @@ and open the template in the editor.
         <script src="js/modules/utils/nav/nav.js"></script>
         <script src="js/modules/history/history.js"></script>
 
+
 <script src="js/modules/home/account/account.js"></script>
         
  <script>
