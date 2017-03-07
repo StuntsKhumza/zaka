@@ -1,4 +1,4 @@
-angular.module('home-app', ['ui.router', 'acc-app', 'nav-app'])
+angular.module('home-app', ['ui.router', 'acc-app', 'nav-app', 'ngCookies'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -7,11 +7,11 @@ angular.module('home-app', ['ui.router', 'acc-app', 'nav-app'])
                 controllerAs: 'homeController',
                 templateUrl: "js/modules/home/home.html",
                 url: '/home/:session',
-                controller: function ($scope, $state, $http, mySession, $stateParams, session) {
+                controller: function ($scope, $state, $http, mySession, $stateParams, $cookieStore,session) {
 
-                    if (session != 200){
+                    if (session == null){
                         $state.go('login');
-                        return;
+                       return;
                     }
 
                     var self = this;
@@ -93,15 +93,18 @@ angular.module('home-app', ['ui.router', 'acc-app', 'nav-app'])
                 },
                 resolve: {
 
-                    session: function ($http) {
+                    session: function ($http,  $cookieStore) {
 
-                        var session = $http.get('session.php?q=check_session');
+                        var session = $cookieStore.get('userActive');
+
+return session;
+                        /*var session = $http.get('session.php?q=check_session');
 
                         return session.then(function (response) {
 
                             return response.data.status;
 
-                        })
+                        })*/
 
                         /*
                         var data = serviceSession.getSession();

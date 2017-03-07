@@ -1,4 +1,4 @@
-angular.module('login-app', ['ui.router'])
+angular.module('login-app', ['ui.router', 'ngCookies'])
 
     .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -7,12 +7,12 @@ angular.module('login-app', ['ui.router'])
                 controllerAs: 'loginController',
                 templateUrl: "js/modules/login/login.html",
                 url: '/login',
-                controller: function ($scope, $state, $http, mySession, $stateParams, session) {
+                controller: function ($scope, $state, $http, mySession, $stateParams, session, $cookieStore) {
 
                     if(session == 200){
                         $state.go('s-home');
                     }
-
+// $scope.test = $cookieStore.get('name');
                     var self = this;
                     self.loginbObj = {
                         username: '',
@@ -29,6 +29,8 @@ angular.module('login-app', ['ui.router'])
 
                                     mySession.UserObj.isActive = true;
                                     mySession.UserObj.username = res.data.name;
+                                    $cookieStore.put('name', res.data.name);
+                                    $cookieStore.put('userActive', "1");
 
                                     $state.go('s-home');
                                 } else {

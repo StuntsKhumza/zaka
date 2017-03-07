@@ -24,6 +24,7 @@ and open the template in the editor.
         -->
 
         <link rel="stylesheet" href="configs/bootstrap.min.css" >
+
         <link rel="icon" href="img/money-icon.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="configs/jquery.min.js"></script>
@@ -31,7 +32,7 @@ and open the template in the editor.
         <script src="configs/bootstrap.min.js"></script>
 	    <script src="configs/angular.min.js"></script>
         <script src="configs/angular-ui-router.js"></script>
-        <script src="configs/angular-cookie.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-cookies.min.js"></script>
 
         <script src="js/lodash.min.js" type="text/javascript"></script>
 
